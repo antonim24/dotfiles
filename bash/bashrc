@@ -1,0 +1,12 @@
+# my bashrc
+
+# Color variables
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+YELLOW='\033[01;33m'
+NC='\033[0m'
+
+# If there is an aliases file, source it
+if [ -f "$HOME/.bash_aliases" ]; then
+    . "$HOME/.bash_aliases"
+fi
