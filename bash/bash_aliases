@@ -2,3 +2,7 @@
 
 # ls show all in log fromat with human readable size and colors
 alias ls='ls -lah --color=auto'
+
+# Bashrc shortcuts
+alias mbrc="vim $HOME/.bashrc"
+alias sbrc=". $HOME/.bashrc" 
