@@ -18,10 +18,23 @@ set shiftwidth=4
 set tabstop=4
 " Use spaces instead of tabs
 set expandtab
+" Auto indentation
+set autoindent
 
 " Show mode on last line
 set showmode
 
+" Use system clipboard
+set clipboard=unnamedplus
+
+""" Searching """
+" Highlight Searches
+set hlsearch
+
+" Incremental highlighint as you search
+set incsearch
+
+""" Autocommands """
 " Use tabs instead of spaces for Makefiles
 autocmd FileType make setlocal noexpandtab
 
