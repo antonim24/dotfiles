@@ -3,6 +3,10 @@
 # Bash History
 export HISTTIMEFORMAT="[%F %T] "
 
+# Environment Variables
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Color variables
 RED='\033[01;31m'
 GREEN='\033[01;32m'
