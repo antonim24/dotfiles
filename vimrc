@@ -7,6 +7,9 @@ filetype on
 " Enable syntax highlighting
 syntax on
 
+" Colorscheme
+colorscheme desert
+
 " Add numbers
 set number
 
