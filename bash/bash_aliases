@@ -6,3 +6,6 @@ alias ls='ls -lah --color=auto'
 # Bashrc shortcuts
 alias mbrc="vim $HOME/.bashrc"
 alias sbrc=". $HOME/.bashrc" 
+
+# Locations
+alias dot="cd $HOME/.dotfiles"
