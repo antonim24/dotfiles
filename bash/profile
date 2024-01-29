@@ -1,17 +1,5 @@
-# If bash is installed and running interactively, then source bashrc
-if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
-    fi
-fi
+# My .profile just calls .bash_profile to do the rest for me
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -f "$HOME/.bash_profile" ]; then
+    . "$HOME/.bash_profile"
 fi
