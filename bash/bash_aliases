@@ -14,10 +14,10 @@ alias mbrc="vim $HOME/.bashrc"
 alias sbr=". $HOME/.bashrc" 
 
 # Git aliases
-alias gs="git status"
-alias ga="git add ."
-alias gc="git commit"
-alias gp="git push"
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit'
+alias gp='git push'
 
 # Locations
 alias dot="cd $HOME/.dotfiles"
