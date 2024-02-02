@@ -19,5 +19,7 @@ alias ga='git add .'
 alias gc='git commit'
 alias gp='git push'
 
-# Locations
+########## Locations ##########
 alias dot="cd $HOME/.dotfiles"
+alias repos="cd $HOME/devel/repos"
+alias docs="cd $HOME/Documents"
