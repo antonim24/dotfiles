@@ -12,11 +12,13 @@
     },
     "workbench.iconTheme": "vscode-icons",
     "workbench.panel.defaultLocation": "right",
+    "workbench.settings.editor": "json",
 
     // Generic for all foles
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "editor.rulers": [120],
 
     // Vim Extension Settings
     "vim.foldfix": true,
@@ -31,7 +33,8 @@
     ],
     "vim.handleKeys": {
         "<C-a>": false,
-        "<C-f>": false
+        "<C-f>": false,
+        "<C-space>": false
     },
 
     // Settings for C++ files
