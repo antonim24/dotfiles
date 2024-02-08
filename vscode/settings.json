@@ -1,0 +1,57 @@
+{
+    // Appearance
+    "workbench.colorTheme": "Default Dark Modern",
+    "editor.fontSize": 14,
+    "window.zoomLevel": 1,
+    "editor.minimap.enabled": false,
+    "zenMode.hideLineNumbers": false,
+    "editor.quickSuggestions": {
+        "other": "inline",
+        "comments": "off",
+        "strings": "off"
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.panel.defaultLocation": "right",
+    "workbench.settings.editor": "json",
+
+    // Generic for all foles
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [120],
+
+    // Vim Extension Settings
+    "vim.foldfix": true,
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        { // Use jj for escape
+            "before": ["j","j"],
+            "after": ["<esc>"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["p"],
+            "commands": ["editor.action.clipboardPasteAction"]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-space>": false
+    },
+
+    // Settings for C++ files
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe",
+
+    // Settings for Python files
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.autoClosingBrackets": "always"
+    },
+    "gcode.general.machineType": "3D Printer",
+    "gcode.general.units": "Metric"
+}
