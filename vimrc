@@ -33,9 +33,18 @@ set clipboard=unnamedplus
 """ Searching """
 " Highlight Searches
 set hlsearch
-
-" Incremental highlighint as you search
+" Incremental highlight as you search
 set incsearch
+" Ignore case unless I am specifically using upper case
+set ignorecase
+set smartcase
+
+" Insert Mode Keymaps
+inoremap jj <esc>
+
+" Change cursor to be a block in normal mode and line in insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 """ Autocommands """
 " Use tabs instead of spaces for Makefiles
