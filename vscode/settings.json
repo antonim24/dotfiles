@@ -20,6 +20,9 @@
     "files.trimFinalNewlines": true,
     "editor.rulers": [120],
 
+    // This will force Vscode to always use unix style \n for LF instead of CRLF
+    "files.eol": "\n",
+
     // Vim Extension Settings
     "vim.foldfix": true,
     "vim.useSystemClipboard": true,
