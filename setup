@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This script will install the different configurations to their correct location
+
+PROGRAMS=("bash" "tmux" "vim")
+
+echo "Installing dotfiles"
+for program in ${PROGRAMS[@]}; do
+    if [[ -f "${PWD}/${program}/setup" ]]; then
+        "${PWD}/${program}/setup"
+    fi
+done
+

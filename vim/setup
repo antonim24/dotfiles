@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo ">> Installing vimrc"
+ln -vsf "${PWD}/vimrc" "${HOME}/.vimrc"

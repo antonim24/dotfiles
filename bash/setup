@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Bash aliases do not get installed since bashrc will look for them in the dotfiles repo
+
+echo ">> Installing profile"
+ln -vsf "${PWD}/profile" "${HOME}/.profile"
+
+echo ">> Installing bash_profile"
+ln -vsf "${PWD}/bash_profile" "${HOME}/.bash_profile"
+
+echo ">> Installing bashrc"
+ln -vsf "${PWD}/bashrc" "${HOME}/.bashrc"

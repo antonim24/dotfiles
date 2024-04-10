@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo ">> Installing tmux.conf"
+ln -vsf "${PWD}/tmux.conf" "${HOME}/.tmux.conf"
