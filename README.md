@@ -12,14 +12,19 @@ After the repository has been cloned, run the following command in the terminal 
 ```bash
 ~/.dotfiles/bin/install_dotfiles.sh
 ```
-And then finally run the `make all` command in the dotfiles directory where you cloned to and watch it all symlink in the right places.
+And then finally run the `setup` script in the dotfiles directory where you cloned to and watch it all symlink in the right places.
 
 # Current Implemented Items
-- Bash
-  - .bashrc
-  - .bash_aliases
-  - .profile
-- tmux
-  - .tmux.conf
-- vim
-  - .vimrc
+* Bash
+  * .profile
+  * .bash_profile
+  * .bashrc
+  * .bash_aliases
+* tmux
+  * .tmux.conf
+* vim
+  * .vimrc
+* VsCode
+  * User settings.json
+  * User keybindings.json
+
