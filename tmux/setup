@@ -1,4 +1,7 @@
 #!/bin/bash
 
+readonly SCRIPT_DIR=$(dirname $(realpath "$0"))
+echo "Current working dir: ${SCRIPT_DIR}"
+
 echo ">> Installing tmux.conf"
-ln -vsf "${PWD}/tmux.conf" "${HOME}/.tmux.conf"
+ln -vsf "${SCRIPT_DIR}/tmux.conf" "${HOME}/.tmux.conf"
