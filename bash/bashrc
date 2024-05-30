@@ -1,7 +1,20 @@
 # my bashrc
 
-# Bash History
+# ----- Bash History -----
+# Append history instead of overwriting
+shopt -s histappend
+# Append to history immediately
+export PROMP_COMMAND='history -a'
+# Add time to command history
 export HISTTIMEFORMAT="[%F %T] "
+# Ignore spaces for sensitive commands and ignore duplicates
+export HISTCONTROL=ignoreboth
+# Ignore the following commands
+export HISTIGNORE="clean:history:date:* --help"
+# Control size of history file
+export HISTSIZE=2000
+export HISTFILESIZE=5000
+
 
 # Environment Variables
 export VISUAL=vim
