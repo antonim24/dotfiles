@@ -42,7 +42,6 @@
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false,
-        "<C-space>": false
     },
 
     // Settings for C++ files
@@ -55,6 +54,4 @@
         "editor.formatOnType": true,
         "editor.autoClosingBrackets": "always"
     },
-    "gcode.general.machineType": "3D Printer",
-    "gcode.general.units": "Metric"
 }

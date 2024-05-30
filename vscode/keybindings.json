@@ -10,20 +10,22 @@
     },
     {
         "key": "ctrl+j",
-        "command": "workbench.action.previousEditor"
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetVisible"
     },
     {
         "key": "ctrl+k",
-        "command": "workbench.action.nextEditor"
-    },
-    { // Make tabs work while in visual mode
-        "key": "tab",
-        "command": "tab",
-        "when": "editorTextFocus && !editorTabMovesFocus"
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetVisible"
     },
     {
-        "key": "shift+tab",
-        "command": "outdent",
-        "when": "editorTextFocus && !editorTabMovesFocus"
-    }
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
 ]
