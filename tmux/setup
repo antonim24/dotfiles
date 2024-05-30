@@ -1,7 +1,12 @@
 #!/bin/bash
 
 readonly SCRIPT_DIR=$(dirname $(realpath "$0"))
-echo "Current working dir: ${SCRIPT_DIR}"
+#echo "Current working dir: ${SCRIPT_DIR}"
 
 echo ">> Installing tmux.conf"
-ln -vsf "${SCRIPT_DIR}/tmux.conf" "${HOME}/.tmux.conf"
+if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
+    echo "\tCreating XDG_CONFIG_HOME directory"
+    mkdir ~/.config
+fi
+
+ln -vsf "${SCRIPT_DIR}/tmux.conf" "${XDG_CONFIG_HOME}/tmux/tmux.conf"
