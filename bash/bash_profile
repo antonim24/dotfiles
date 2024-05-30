@@ -14,8 +14,6 @@ export DOTFILES="$HOME/.dotfiles"
 # set PATH so it includes user's private bin if it exists
 if [[ -d "${HOME}/.local/bin" && ! "${PATH}" =~ [:]?"${HOME}/.local/bin"[:]? ]] ; then
     PATH="${HOME}/.local/bin:$PATH"
-else
-	echo "bin already in path"
 fi
 
 # If it is an interactive shell, then source .bashrc
