@@ -1,13 +1,5 @@
 [
-    {
-        "key": "ctrl+e",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
-        "key": "ctrl+e",
-        "command": "workbench.files.action.focusFilesExplorer",
-        "when": "editorTextFocus"
-    },
+    // Move up and down in autocomplete suggestions
     {
         "key": "ctrl+j",
         "command": "selectNextSuggestion",
@@ -18,6 +10,7 @@
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetVisible"
     },
+    // Move up and down in command pallete
     {
         "key": "ctrl+j",
         "command": "workbench.action.quickOpenSelectNext",
@@ -27,5 +20,36 @@
         "key": "ctrl+k",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
+    },
+    // Settings for file explorer
+    {
+        "key": "space e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "filesExplorerFocus"
     },
 ]
