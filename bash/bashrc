@@ -16,8 +16,8 @@ CYAN='\033[1;36m'
 NC='\033[0m'
 
 # If there is an aliases file, source it
-if [ -f "$HOME/.bash_aliases" ]; then
-    . "$HOME/.bash_aliases"
+if [ -f "$DOTFILES/bash/bash_aliases" ]; then
+    . "$DOTFILES/bash/bash_aliases"
 fi
 
 # Original: ${debian_chroot:+($debian_chroot)}\u@\h:\w\$
