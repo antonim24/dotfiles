@@ -29,13 +29,16 @@ CYAN='\033[1;36m'
 NC='\033[0m'
 
 # If there is an aliases file, source it
-if [ -f "$DOTFILES/bash/bash_aliases" ]; then
-    . "$DOTFILES/bash/bash_aliases"
+if [[ -f "$DOTFILES/bash/bash_aliases" ]]; then
+    source "$DOTFILES/bash/bash_aliases"
 fi
 
 # Original: ${debian_chroot:+($debian_chroot)}\u@\h:\w\$
 # Custom PS1 prompt
-export PS1="\[${CYAN}\]\u\[${NC}\]@\[${GREEN}\]\h\[${NC}\]: \w\[${YELLOW}\]\$(git_branch)\[${NC}\]\$ "
+#export PS1="\[${CYAN}\]\u\[${NC}\]@\[${GREEN}\]\h\[${NC}\]: \w\[${YELLOW}\]\$(git_branch)\[${NC}\]\$ "
+if [[ -f "$DOTFILES/bash/bash_prompt" ]]; then
+    source "$DOTFILES/bash/bash_prompt"
+fi
 
 # Git Repo Information
 git_branch() {
