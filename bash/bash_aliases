@@ -4,7 +4,8 @@
 alias v="vim"
 
 # ls show all in log fromat with human readable size and colors
-alias ls='ls -lah --color=auto'
+alias ls='ls --color=auto'
+alias la='ls -lah'
 
 # Colors
 alias grep="grep --color=auto"
@@ -20,6 +21,6 @@ alias gc='git commit'
 alias gp='git push'
 
 ########## Locations ##########
-alias dot="cd $HOME/.dotfiles"
-alias repos="cd $HOME/devel/repos"
-alias docs="cd $HOME/Documents"
+alias dot='cd $HOME/.dotfiles'
+alias repos='cd $HOME/devel/repos'
+alias docs='cd $HOME/Documents'

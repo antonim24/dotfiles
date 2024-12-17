@@ -35,10 +35,7 @@ fi
 
 # Original: ${debian_chroot:+($debian_chroot)}\u@\h:\w\$
 # Custom PS1 prompt
-#export PS1="\[${CYAN}\]\u\[${NC}\]@\[${GREEN}\]\h\[${NC}\]: \w\[${YELLOW}\]\$(git_branch)\[${NC}\]\$ "
-if [[ -f "$DOTFILES/bash/bash_prompt" ]]; then
-    source "$DOTFILES/bash/bash_prompt"
-fi
+export PS1="\[${CYAN}\]\u\[${NC}\]@\[${GREEN}\]\h\[${NC}\]: \w\[${YELLOW}\]\$(git_branch)\[${NC}\]\$ "
 
 # Git Repo Information
 git_branch() {
