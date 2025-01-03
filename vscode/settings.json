@@ -6,26 +6,25 @@
     "editor.minimap.enabled": false,
     "zenMode.hideLineNumbers": false,
     "editor.quickSuggestions": {
-        "other": "inline",
+        "other": "on",
         "comments": "off",
         "strings": "off"
     },
     "workbench.iconTheme": "vscode-icons",
-    "workbench.panel.defaultLocation": "right",
+    // "workbench.panel.defaultLocation": "right",
     "workbench.settings.editor": "json",
-
     // Scrolloff setting
     "editor.cursorSurroundingLines": 8,
-
     // Generic for all files
+    "files.autoSave": "afterDelay",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.rulers": [120],
-
+    "editor.suggest.insertMode": "replace",
+    // "editor.autoClosingBrackets": "never",
     // This will force Vscode to always use unix style \n for LF instead of CRLF
     "files.eol": "\n",
-
     // Vim Extension Settings
     "vim.foldfix": true,
     "vim.useSystemClipboard": true,
@@ -38,10 +37,10 @@
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        // {
-        //     "before": ["g","d"],
-        //     "commands": ["editor.action.gotoDef"]
-        // },
+        {
+            "before": ["g","d"],
+            "commands": ["editor.action.gotoDef"]
+        },
         {
             "before": ["g","h"],
             "commands": ["editor.action.showDefinitionPreviewHover"]
@@ -49,6 +48,14 @@
         {
             "before": ["<leader>","e"],
             "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["<leader>","f","d"],
+            "commands": ["editor.action.formatDocument"]
+        },
+        {
+            "before": ["<leader>","f","s"],
+            "commands": ["editor.action.fomratSelection"]
         },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
@@ -60,16 +67,62 @@
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-f>": false,
+        "<C-p>": false,
+        "<C-w>": false,
     },
-
     // Settings for C++ files
     "C_Cpp.autocompleteAddParentheses": true,
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe",
-
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "*"
+    ],
+    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+        "android-*"
+    ],
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "[cpp]": {
+        "editor.wordBasedSuggestions": "off",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.stickyScroll.defaultModel": "foldingProviderModel",
+        "editor.suggest.insertMode": "replace"
+    },
     // Settings for Python files
     "[python]": {
         "editor.formatOnType": true,
         "editor.autoClosingBrackets": "always"
     },
+    "remote.SSH.remotePlatform": {
+        "homeserver": "linux"
+    },
+    "[json][jsonc]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+    },
+    "clangd.arguments": [
+        "--enable-config",
+        "--log=verbose",
+        "--compile-commands-dir=./build/compile_commands.json"
+    ],
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "doxdocgen.c.triggerSequence": "/**",
+    "files.associations": {
+        ".clang-format": "yaml",
+        ".clang-tidy": "yaml"
+    },
+    // "telemetry.telemetryLevel": "off",
+    "extensions.autoCheckUpdates": false,
+    "extensions.ignoreRecommendations": true,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    // "remote.extensionKind": {
+    //     "vscode-ext-poc": "workspace"
+    // }
+    "cSpell.allowCompoundWords": true,
+    "git.openRepositoryInParentFolders": "never",
 }
