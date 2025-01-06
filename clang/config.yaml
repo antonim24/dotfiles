@@ -1,0 +1,26 @@
+# Personal clangd lsp configuration
+CompileFlags:
+  Compiler: g++
+  Add:
+    - -std=c++20
+    - -Wall
+    - -Wextra
+    - -Wpedantic
+Index:
+  StandardLibrary: Yes
+Diagnostics:
+  ClangTidy:
+    Add: "bugprone-*,
+          cert-*,
+          clang-analyzer-*,
+          concurrency-*,
+          cppcoreguidelines-*,
+          google-*,
+          linuxkernel-*,
+          misc-*,
+          modernize-*,
+          performance-*,
+          portability-*,
+          readability-*
+"
+    Remove: "modernize-use-trailing-return-type"
