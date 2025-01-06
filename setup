@@ -2,7 +2,13 @@
 
 # This script will install the different configurations to their correct location
 
-PROGRAMS=("bash" "tmux" "vim")
+PROGRAMS=("bash" "tmux" "vim" "clang")
+
+# Verify that the XDG config location exists
+if [[ ! -d "$XDG_CONFIG_HOME" ]]; then
+    echo "\tCreating XDG_CONFIG_HOME directory"
+    mkdir ~/.config
+fi
 
 echo "Installing dotfiles"
 for program in ${PROGRAMS[@]}; do
@@ -10,4 +16,3 @@ for program in ${PROGRAMS[@]}; do
         "${PWD}/${program}/setup"
     fi
 done
-
