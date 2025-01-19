@@ -55,7 +55,7 @@
         },
         {
             "before": ["<leader>","f","s"],
-            "commands": ["editor.action.fomratSelection"]
+            "commands": ["editor.action.formatSelection"]
         },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
@@ -103,9 +103,10 @@
         "editor.suggest.insertMode": "replace",
     },
     "clangd.arguments": [
-        "--enable-config",
         "--log=verbose",
-        "--compile-commands-dir=./build/compile_commands.json"
+        "--enable-config",
+        "--query-driver=/usr/bin/x86_64-linux-gnu-g++-12",
+        // "--compile-commands-dir=./build/compile_commands.json"
     ],
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
@@ -114,15 +115,23 @@
     "doxdocgen.c.triggerSequence": "/**",
     "files.associations": {
         ".clang-format": "yaml",
-        ".clang-tidy": "yaml"
+        ".clang-tidy": "yaml",
+        "vimrc": "Vimscript",
+        "*aliases": "shellscript",
+        "bash*": "shellscript",
+        "profile": "shellscript"
     },
-    // "telemetry.telemetryLevel": "off",
     "extensions.autoCheckUpdates": false,
     "extensions.ignoreRecommendations": true,
     "workbench.settings.enableNaturalLanguageSearch": false,
-    // "remote.extensionKind": {
-    //     "vscode-ext-poc": "workspace"
-    // }
     "cSpell.allowCompoundWords": true,
     "git.openRepositoryInParentFolders": "never",
+    "cSpell.customDictionaries": {
+        "custom-dictionary-user": {
+            "name": "programming-languages",
+            "path": "~/.cspell/dictionary_programming_languages.txt",
+            "addWords": true,
+            "scope": "user"
+        }
+    },
 }
