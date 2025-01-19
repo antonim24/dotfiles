@@ -5,14 +5,17 @@ alias v="vim"
 
 # ls show all in log fromat with human readable size and colors
 alias ls='ls --color=auto'
-alias la='ls -lah'
+alias la='ls -lAh'
 
 # Colors
 alias grep="grep --color=auto"
 
 # Bashrc shortcuts
 alias mbrc="vim $HOME/.bashrc"
-alias sbr=". $HOME/.bashrc" 
+alias sbr=". $HOME/.bashrc"
+
+# Chmod helper
+alias chmodx='chmod u+x'
 
 # Git aliases
 alias gs='git status'
@@ -20,7 +23,11 @@ alias ga='git add .'
 alias gc='git commit'
 alias gp='git push'
 
+# Networking help
+alias ls_ports='sudo lsof -i -P -n'
+
 ########## Locations ##########
 alias dot='cd $HOME/.dotfiles'
 alias repos='cd $HOME/devel/repos'
 alias docs='cd $HOME/Documents'
+alias devel='cd ${HOME}/devel'
