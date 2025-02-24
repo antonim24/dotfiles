@@ -6,6 +6,9 @@ alias v="vim"
 # ls show all in log fromat with human readable size and colors
 alias ls='ls --color=auto'
 alias la='ls -lAh'
+alias ll='ls -l'
+alias lsme='ls | grep antoni'
+alias llme='ll | grep antoni'
 
 # Colors
 alias grep="grep --color=auto"
@@ -28,6 +31,6 @@ alias ls_ports='sudo lsof -i -P -n'
 
 ########## Locations ##########
 alias dot='cd $HOME/.dotfiles'
-alias repos='cd $HOME/devel/repos'
+alias repos='cd $HOME/repos'
 alias docs='cd $HOME/Documents'
 alias devel='cd ${HOME}/devel'
