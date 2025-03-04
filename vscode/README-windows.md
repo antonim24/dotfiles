@@ -11,3 +11,8 @@ New-Item -ItemType SymbolicLink -Path "$Env:APPDATA\Code\User\settings.json" -Ta
 ``` ps
 New-Item -ItemType SymbolicLink -Path "$Env:APPDATA\Code\User\keybindings.json" -Target "$Env:USERPROFILE\.dotfiles\vscode\keybindings.json"
 ```
+
+## User snippets directory
+``` ps
+New-Item -ItemType SymbolicLink -Path "$Env:APPDATA\Code\User\snippets" -Target "$Env:USERPROFILE\.dotfiles\vscode\snippets"
+```
