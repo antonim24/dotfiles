@@ -1,6 +1,6 @@
-# my bashrc
+# Antoni's bashrc
 
-# ----- Bash History -----
+# ----- Bash History ----- #
 # Append history instead of overwriting
 shopt -s histappend
 # Append to history immediately
@@ -14,7 +14,6 @@ export HISTIGNORE="clean:history:date:* --help"
 # Control size of history file
 export HISTSIZE=2000
 export HISTFILESIZE=5000
-
 
 # Environment Variables
 export VISUAL=vim
@@ -33,13 +32,22 @@ if [[ -f "$DOTFILES/bash/bash_aliases" ]]; then
     source "$DOTFILES/bash/bash_aliases"
 fi
 
-# Original: ${debian_chroot:+($debian_chroot)}\u@\h:\w\$
-# Custom PS1 prompt
+# ----- Prompt ----- #
+# PS1
 export PS1="\[${CYAN}\]\u\[${NC}\]@\[${GREEN}\]\h\[${NC}\]: \w\[${YELLOW}\]\$(git_branch)\[${NC}\]\$ "
+
+# ----- Functions ----- #
 
 # Git Repo Information
 git_branch() {
     git name-rev --name-only @ 2> /dev/null | sed -e 's/\(.*\)/ (\1)/'
+}
+
+# Create a new shell script
+function newx() {
+    local name=$1
+    echo -e "#!/bin/bash\n\n" > "${name}.sh"
+    chmod +x "${name}.sh"
 }
 
 

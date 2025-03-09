@@ -20,11 +20,13 @@ alias sbr=". $HOME/.bashrc"
 # Chmod helper
 alias chmodx='chmod u+x'
 
-# Git aliases
+# ----- Git ----- #
 alias gs='git status'
-alias ga='git add .'
-alias gc='git commit'
-alias gp='git push'
+
+# ----- Python ----- #
+alias pc='python3 -m venv .venv'
+alias pa='source .venv/bin/activate'
+alias pd='deactivate'
 
 # Networking help
 alias ls_ports='sudo lsof -i -P -n'
