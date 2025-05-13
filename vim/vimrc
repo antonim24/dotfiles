@@ -3,8 +3,8 @@
 set nocompatible
 
 " Automatic filetype detection
-filetype on
-plugin on
+filetype plugin on
+filetype indent on
 
 " Enable syntax highlighting
 syntax on
