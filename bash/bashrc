@@ -20,12 +20,12 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Color variables
-RED='\033[01;31m'
-GREEN='\033[01;32m'
-YELLOW='\033[01;33m'
-BLUE='\033[01;34m'
-CYAN='\033[1;36m'
-NC='\033[0m'
+RED='\[\e[01;31m\]'
+GREEN='\[\e[01;32m\]'
+YELLOW='\[\e[01;33m\]'
+BLUE='\[\e[01;34m\]'
+CYAN='\[\e[1;36m\]'
+NC='\[\e[0m\]'
 
 # If there is an aliases file, source it
 if [[ -f "$DOTFILES/bash/bash_aliases" ]]; then
@@ -34,13 +34,27 @@ fi
 
 # ----- Prompt ----- #
 # PS1
-export PS1="\[${CYAN}\]\u\[${NC}\]@\[${GREEN}\]\h\[${NC}\]: \w\[${YELLOW}\]\$(git_branch)\[${NC}\]\$ "
+export PS1="${RED}\$(exit_code_prompt)${NC}${CYAN}\u${NC}@${GREEN}\h${NC}: \w${YELLOW}\$(git_branch)${NC}\n\$ "
 
 # ----- Functions ----- #
 
 # Git Repo Information
 git_branch() {
     git name-rev --name-only @ 2> /dev/null | sed -e 's/\(.*\)/ (\1)/'
+}
+
+# Add error code to prompt when command fails
+#
+# Check the exit status from the last run and then add to the prompt
+# if the last return code was non-zero
+#
+# RETURNS:
+#   A red x with exit code if failure or nothig on success
+function exit_code_prompt(){
+    local exit_code=$?
+    if [[ ${exit_code} -ne 0 ]]; then
+        echo "(x: ${exit_code})"
+    fi
 }
 
 # Create a new shell script
