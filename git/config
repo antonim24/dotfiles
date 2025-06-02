@@ -1,0 +1,30 @@
+[user]
+	name = Antoni Meyer
+	email = antoni@ameyer.dev
+
+[core]
+    compression = 9
+
+[fetch]
+    ; Delete local branches that were delete on remote.
+    prune = true
+
+    
+[merge]
+    ; This will also show the base commit from where they diverged
+    ; to make it easier to see what has changed in the merge conflict.
+	conflictstyle = diff3
+
+[init]
+    defaultBranch = main
+
+[pull]
+    ; Don't do merges by default. This will fail if it can't fast forward
+	ff = only
+
+[status]
+    showUntrackedFiles = all
+
+[alias]
+    ; Easy and quick to see a summary of the history
+	hist = log --oneline --decorate --graph
