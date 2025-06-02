@@ -34,13 +34,15 @@ fi
 
 # ----- Prompt ----- #
 # PS1
-export PS1="${RED}\$(exit_code_prompt)${NC}${CYAN}\u${NC}@${GREEN}\h${NC}: \w${YELLOW}\$(git_branch)${NC}\n\$ "
+export PS1="${RED}\$(exit_code_prompt)${NC}${CYAN}\u${NC}@${GREEN}\h${NC}: \w${YELLOW}\$(git_branch_or_tag)${NC}\n\$ "
 
 # ----- Functions ----- #
 
 # Git Repo Information
-git_branch() {
-    git name-rev --name-only @ 2> /dev/null | sed -e 's/\(.*\)/ (\1)/'
+function git_branch_or_tag() {
+    local name
+    name="$(git symbolic-ref --short HEAD 2> /dev/null || git describe --tags --exact-match 2> /dev/null )"
+    echo "${name}" | sed -e 's/\(.*\)/ (\1)/'
 }
 
 # Add error code to prompt when command fails
