@@ -3,6 +3,8 @@
 	email = antoni@ameyer.dev
 
 [core]
+    ; Fix line endings between Windows and Unix
+	autocrlf = input
     compression = 9
 
 [fetch]
