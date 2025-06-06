@@ -42,7 +42,9 @@ export PS1="${RED}\$(exit_code_prompt)${NC}${CYAN}\u${NC}@${GREEN}\h${NC}: \w${Y
 function git_branch_or_tag() {
     local name
     name="$(git symbolic-ref --short HEAD 2> /dev/null || git describe --tags --exact-match 2> /dev/null )"
-    echo "${name}" | sed -e 's/\(.*\)/ (\1)/'
+    if [[ ! -z ${name} ]]; then
+        echo "${name}" | sed -e 's/\(.*\)/ (\1)/'
+    fi
 }
 
 # Add error code to prompt when command fails
