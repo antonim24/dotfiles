@@ -1,8 +1,7 @@
 {
-    // Appearance
+    // ----- Appearance ----- //
     "workbench.colorTheme": "Default Dark Modern",
-    "editor.fontSize": 14,
-    "window.zoomLevel": 1,
+    "editor.fontSize": 18,
     "editor.minimap.enabled": false,
     "zenMode.hideLineNumbers": false,
     "editor.quickSuggestions": {
@@ -11,24 +10,24 @@
         "strings": "off"
     },
     "workbench.iconTheme": "vscode-icons",
-    // "workbench.panel.defaultLocation": "right",
     "workbench.settings.editor": "json",
     // Scrolloff setting
     "editor.cursorSurroundingLines": 8,
-    // Generic for all files
+    // ----- Generic for all files ----- //
     "files.autoSave": "afterDelay",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.rulers": [120],
     "editor.suggest.insertMode": "replace",
-    // "editor.autoClosingBrackets": "never",
+    "editor.autoClosingBrackets": "never",
     // This will force Vscode to always use unix style \n for LF instead of CRLF
     "files.eol": "\n",
-    // Vim Extension Settings
+    // ----- Vim Extension Settings ----- //
     "vim.foldfix": true,
     "vim.useSystemClipboard": true,
     "vim.highlightedyank.enable": true,
+    "vim.smartRelativeLine": true,
     "vim.leader": "<space>",
     "vim.insertModeKeyBindingsNonRecursive": [
         { // Use jj for escape
@@ -53,12 +52,12 @@
             "before": ["<leader>","f","d"],
             "commands": ["editor.action.formatDocument"]
         },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": ["<leader>","f","s"],
             "commands": ["editor.action.formatSelection"]
         },
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": ["p"],
             "commands": ["editor.action.clipboardPasteAction"]
@@ -69,6 +68,9 @@
         "<C-f>": false,
         "<C-p>": false,
         "<C-w>": false,
+    },
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
     },
     // Settings for C++ files
     "C_Cpp.autocompleteAddParentheses": true,
@@ -83,10 +85,11 @@
     ],
     "C_Cpp.intelliSenseEngine": "disabled",
     "[cpp]": {
-        "editor.wordBasedSuggestions": "off",
-        "editor.semanticHighlighting.enabled": true,
-        "editor.stickyScroll.defaultModel": "foldingProviderModel",
-        "editor.suggest.insertMode": "replace"
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        },
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
     // Settings for Python files
     "[python]": {
@@ -102,17 +105,36 @@
         },
         "editor.suggest.insertMode": "replace",
     },
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true
+    },
+    // Clangd Extension
     "clangd.arguments": [
         "--log=verbose",
         "--enable-config",
         "--query-driver=/usr/bin/x86_64-linux-gnu-g++-12",
-        // "--compile-commands-dir=./build/compile_commands.json"
     ],
+    // CMake Extension
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
-    "doxdocgen.c.triggerSequence": "/**",
+    "cmake.configureOnEdit": false,
+    // Doxygen settings
+    "doxdocgen.c.triggerSequence": "///",
+    "doxdocgen.generic.order": [
+        "brief",
+        // "empty",
+        "tparam",
+        "param",
+        "return",
+        "custom"
+    ],
+    "doxdocgen.cpp.ctorText": "Construct a new {name} object.",
+    "doxdocgen.cpp.dtorText": "Destroy the {name} object.",
+
+    // Other Settings
     "files.associations": {
         ".clang-format": "yaml",
         ".clang-tidy": "yaml",
@@ -121,11 +143,10 @@
         "bash*": "shellscript",
         "profile": "shellscript"
     },
-    "extensions.autoCheckUpdates": false,
     "extensions.ignoreRecommendations": true,
     "workbench.settings.enableNaturalLanguageSearch": false,
+    // ----- CSpell ----- //
     "cSpell.allowCompoundWords": true,
-    "git.openRepositoryInParentFolders": "never",
     "cSpell.customDictionaries": {
         "custom-dictionary-user": {
             "name": "programming-languages",
@@ -134,4 +155,8 @@
             "scope": "user"
         }
     },
+    // ----- GitLens ----- //
+    "git.openRepositoryInParentFolders": "never",
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
 }
