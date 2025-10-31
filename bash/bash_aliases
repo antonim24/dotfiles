@@ -14,7 +14,6 @@ alias llme='ll | grep antoni'
 alias grep="grep --color=auto"
 
 # Bashrc shortcuts
-alias mbrc="vim $HOME/.bashrc"
 alias sbr=". $HOME/.bashrc"
 
 # Chmod helper

@@ -9,6 +9,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # ---------- Environment Variables ----------
+export SHELL=/bin/bash
 export DOTFILES="$HOME/.dotfiles"
 
 # set PATH so it includes user's private bin if it exists
@@ -24,3 +25,12 @@ if [ -n "$BASH_VERSION" -a -n "$PS1" ]; then
     fi
 fi
 
+
+# ---------- Tool Paths ----------
+
+# Adds Neovim's install path to the user's path.
+NEOVIM_BIN_PATH="/opt/neovim/bin"
+if [[ -d ${NEOVIM_BIN_PATH} && ":${PATH}:" != *":${NEOVIM_BIN_PATH}:"* ]]; then
+    PATH="${NEOVIM_BIN_PATH}:$PATH"
+    export PATH="${PATH}"
+fi
