@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Purpose: Prints the PATH variable in a nicer format
+#
+# Date: 2025-11-29
+# Copyright (c) 2025
+
+echo "${PATH}" | sed 's|:|\n|g'
