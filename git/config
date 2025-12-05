@@ -3,9 +3,10 @@
 	email = antoni@ameyer.dev
 
 [core]
-    ; Fix line endings between Windows and Unix
-	autocrlf = input
     compression = 9
+
+    ; Error on whitespace
+    whitespace = error
 
 [fetch]
     ; Delete local branches that were delete on remote.
@@ -21,12 +22,29 @@
     defaultBranch = main
 
 [pull]
-    ; Don't do merges by default. This will fail if it can't fast forward
-	ff = only
+    ; Rebase to avoid merge commits
+    rebase = true
+
+[push]
+    ; Automatically set up remote repository for tracking
+    autoSetupRemote = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
 
 [status]
+    branch = true
+    showStash = true
     showUntrackedFiles = all
+    short = True
 
 [alias]
+    ; One line without graphing
+    lol = log --oneline
+
     ; Easy and quick to see a summary of the history
 	hist = log --oneline --decorate --graph
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
