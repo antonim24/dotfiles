@@ -1,5 +1,41 @@
-# My .profile just calls .bash_profile to do the rest for me
+# Profile sets up environment that is shared between different shells
 
-if [ -f "$HOME/.bash_profile" ]; then
-    . "$HOME/.bash_profile"
-fi
+# Implement XDG Base Directory Specification
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
+# ---------- Environment Variables ----------
+export SHELL="/bin/bash"
+export DOTFILES="${HOME}/.dotfiles"
+
+am::in_path(){
+    local dir="$1"
+    [ ":${PATH}:" == *":${dir}:"* ]
+}
+
+am::prepend_path(){
+    local dir="$1"
+    if [ -z "${dir}" ]; then return 0; fi
+    if [ -d "${dir}" ]; then
+        am::in_path "${dir}"
+        status=$?
+        if [ ${status} -ne 0 ]; then
+            export PATH="${dir}:${PATH}"
+        fi
+    fi
+}
+
+# Install user bin directory if it exists
+# if [ -d "${HOME}/.local/bin" ] && [ ! in_path "${HOME}/.local/bin" ]; then
+#     export PATH="${HOME}/.local/bin:${PATH}"
+# fi
+am::prepend_path "${HOME}/.local/bin"
+
+# Install dotfiles bin directory if it exists
+# if [ -d "${DOTFILES}/bin" ] && [ ! in_path "${DOTFILES}/bin" ]; then
+#     export PATH="${DOTFILES}/bin:${PATH}"
+# fi
+am::prepend_path "${DOTFILES}/bin"
+
