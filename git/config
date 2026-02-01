@@ -2,24 +2,41 @@
 	name = Antoni Meyer
 	email = antoni@ameyer.dev
 
-[core]
-    compression = 9
+[branch]
+    sort = -committerdate
 
+[column]
+    ui = auto
+
+[core]
     ; Error on whitespace
     whitespace = error
+
+[diff]
+    ; Show better output when in diff
+    algorithm = histogram
+
+    ; Shows moved as a different color than added
+    colorMoved = plain
+
+    ; Shows index and working directory instead of a and b
+    mnemonicPrefix = true
 
 [fetch]
     ; Delete local branches that were delete on remote.
     prune = true
+    prunetags = true
 
+[init]
+    defaultBranch = main
+
+[log]
+    date = iso
     
 [merge]
     ; This will also show the base commit from where they diverged
     ; to make it easier to see what has changed in the merge conflict.
-	conflictstyle = diff3
-
-[init]
-    defaultBranch = main
+	conflictstyle = zdiff3
 
 [pull]
     ; Rebase to avoid merge commits
@@ -30,14 +47,22 @@
     autoSetupRemote = true
 
 [rebase]
+    autoSquash = true
     autoStash = true
     missingCommitsCheck = warn
+
+[rerere]
+    enabled = true
 
 [status]
     branch = true
     showStash = true
     showUntrackedFiles = all
     short = True
+
+[tag]
+    ; Sort tags using version instead of alnum
+    sort = version:refname
 
 [alias]
     ; One line without graphing
@@ -46,5 +71,11 @@
     ; Easy and quick to see a summary of the history
 	hist = log --oneline --decorate --graph
 
+    # Clean but exclude vscode folder
+    cb = clean -fxd --exclude=.vscode
+
 [url "git@github.com:"]
     insteadOf = "gh:"
+
+[url "git@github.com:antonim24/"]
+    insteadOf = "mgh:"
