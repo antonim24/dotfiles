@@ -28,8 +28,8 @@ CYAN='\[\e[1;36m\]'
 NC='\[\e[0m\]'
 
 # If there is an aliases file, source it
-if [[ -f "$DOTFILES/bash/bash_aliases" ]]; then
-    source "$DOTFILES/bash/bash_aliases"
+if [[ -f "$DOTFILES/shell/aliases" ]]; then
+    source "$DOTFILES/shell/aliases"
 fi
 
 # ----- Prompt ----- #
