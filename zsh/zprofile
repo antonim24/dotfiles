@@ -1,0 +1,4 @@
+# If the general profile exists, then source it
+if [[ -f ${HOME}/.profile ]]; then
+    source ${HOME}/.profile
+fi
