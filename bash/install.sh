@@ -3,13 +3,6 @@
 # NOTE: Bash aliases do not get installed since bashrc will look for them in the dotfiles repo
 
 readonly SCRIPT_DIR=$(dirname $(realpath "$0"))
-echo "Current working dir: ${SCRIPT_DIR}"
 
-echo ">> Installing profile"
-ln -vsf "${SCRIPT_DIR}/profile" "${HOME}/.profile"
-
-echo ">> Installing bash_profile"
 ln -vsf "${SCRIPT_DIR}/bash_profile" "${HOME}/.bash_profile"
-
-echo ">> Installing bashrc"
 ln -vsf "${SCRIPT_DIR}/bashrc" "${HOME}/.bashrc"

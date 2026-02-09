@@ -1,7 +1,5 @@
 #!/bin/bash
 
 readonly SCRIPT_DIR=$(dirname $(realpath "$0"))
-echo "Current working dir: ${SCRIPT_DIR}"
 
-echo ">> Installing vimrc"
 ln -vsf "${SCRIPT_DIR}/vimrc" "${HOME}/.vimrc"

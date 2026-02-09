@@ -12,5 +12,4 @@ if [[ ! -d ${XDG_CONFIG_HOME}/tmux ]]; then
     mkdir -p "${XDG_CONFIG_HOME}/tmux"
 fi
 
-echo ">> Installing tmux.conf"
 ln -vsf "${SCRIPT_DIR}/tmux.conf" "${XDG_CONFIG_HOME}/tmux/tmux.conf"
