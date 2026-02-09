@@ -13,9 +13,6 @@ alias llme='ll | grep antoni'
 # Colors
 alias grep="grep --color=auto"
 
-# Bashrc shortcuts
-alias sbr=". $HOME/.bashrc"
-
 # Chmod helper
 alias chmodx='chmod u+x'
 
@@ -27,11 +24,9 @@ alias pc='python3 -m venv .venv'
 alias pa='source .venv/bin/activate'
 alias pd='deactivate'
 
-# Networking help
-alias ls_ports='sudo lsof -i -P -n'
-
 ########## Locations ##########
 alias dot='cd $HOME/.dotfiles'
 alias repos='cd $HOME/repos'
 alias docs='cd $HOME/Documents'
 alias devel='cd ${HOME}/devel'
+alias masters='cd ${HOME}/cs-masters'
