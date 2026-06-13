@@ -1,33 +1,62 @@
+# --- History ---
+
+# Where to store state (logs, recent files, etc, etc)
+ZSH_STATE_DIR="${XDG_STATE_HOME:-${HOME}/.local/state}/zsh"
+if [[ ! -d ${ZSH_STATE_DIR} ]]; then
+    mkdir -p "${ZSH_STATE_DIR}"
+fi
+
+# History File
+HISTFILE="${ZSH_STATE_DIR}/history"
+HISTSIZE=5000 # Number saved in memory
+SAVEHIST=5000 # Number saved in history file
+
+# History options
+setopt EXTENDED_HISTORY # Add timestamps
+setopt SHARE_HISTORY # Append immediately to history file
+setopt HIST_IGNORE_ALL_DUPS # Ignore duplicates
+setopt HIST_IGNORE_SPACE # Ignore command if it started with a space
+setopt HIST_REDUCE_BLANKS # Remove extra blank lines
+
+# --- Prompt ---
+
 # Git information
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats ' %F{yellow}(%b)%f '
+
+# Set up the prompt
+precmd() { vcs_info; }
+function _prompt_exit_code(){
+    local exit_code=$?
+    if [[ ${exit_code} != 0 ]]; then
+        echo "(${exit_code})"
+    fi
+}
+setopt PROMPT_SUBST
+PROMPT='%F{red}$(_prompt_exit_code)%f' # Show return code in red if it failed
+PROMPT+='[%T] ' # Time in 24H format
+PROMPT+='%F{green}%m%f: ' # Short hostname
+PROMPT+='%~${vcs_info_msg_0_}'
+PROMPT+=$'\n'"$ "
+
+# --- Aliases ---
 
 # If there is an aliases file, source it
 if [[ -f "$DOTFILES/shell/aliases" ]]; then
     source "$DOTFILES/shell/aliases"
 fi
 
-# Set up the prompt
-precmd() { vcs_info; }
-setopt PROMPT_SUBST
-PROMPT='[%T] ' # Time in 24H format
-PROMPT+='%F{green}%m%f: ' # Short hostname
-PROMPT+='%~${vcs_info_msg_0_}'
-PROMPT+=$'\n'"$ "
+# --- Completion ---
 
-# setopt histignorealldups sharehistory
+# Add Docker completion
+FPATH="$XDG_DATA_HOME/docker/completions:$FPATH"
 
-# # Use emacs keybindings even if our EDITOR is set to vi
-# bindkey -e
-
-# # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-# HISTSIZE=1000
-# SAVEHIST=1000
-# HISTFILE=~/.zsh_history
-
-# # Use modern completion system
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
+# Load bash completion if it was installed on the system
+if [[ -r /etc/profile.d/bash_completion.sh ]]; then
+    source /etc/profile.d/bash_completion.sh
+fi
 
 # zstyle ':completion:*' auto-description 'specify: %d'
 # zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -46,3 +75,7 @@ PROMPT+=$'\n'"$ "
 
 # zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 # zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
