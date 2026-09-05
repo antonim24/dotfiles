@@ -9,21 +9,23 @@
     ui = auto
 
 [core]
-    ; Error on whitespace
+    # Error on whitespace
     whitespace = error
 
+    editor = "vim"
+
 [diff]
-    ; Show better output when in diff
+    # Show better output when in diff
     algorithm = histogram
 
-    ; Shows moved as a different color than added
+    # Shows moved as a different color than added
     colorMoved = plain
 
-    ; Shows index and working directory instead of a and b
+    # Shows index and working directory instead of a and b
     mnemonicPrefix = true
 
 [fetch]
-    ; Delete local branches that were delete on remote.
+    # Delete local branches that were delete on remote.
     prune = true
     prunetags = true
 
@@ -32,18 +34,18 @@
 
 [log]
     date = iso
-    
+
 [merge]
-    ; This will also show the base commit from where they diverged
-    ; to make it easier to see what has changed in the merge conflict.
+    # This will also show the base commit from where they diverged
+    # to make it easier to see what has changed in the merge conflict.
 	conflictstyle = zdiff3
 
 [pull]
-    ; Rebase to avoid merge commits
+    # Rebase to avoid merge commits
     rebase = true
 
 [push]
-    ; Automatically set up remote repository for tracking
+    # Automatically set up remote repository for tracking
     autoSetupRemote = true
 
 [rebase]
@@ -61,18 +63,21 @@
     short = True
 
 [tag]
-    ; Sort tags using version instead of alnum
+    # Sort tags using version instead of alnum
     sort = version:refname
 
 [alias]
-    ; One line without graphing
+    # One line without graphing
     lol = log --oneline
 
-    ; Easy and quick to see a summary of the history
+    # Easy and quick to see a summary of the history
 	hist = log --oneline --decorate --graph
 
     # Clean but exclude vscode folder
     cb = clean -fxd --exclude=.vscode
+
+    # Force push
+    pf = push --force-with-lease
 
 [url "git@github.com:"]
     insteadOf = "gh:"

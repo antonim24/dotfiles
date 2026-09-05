@@ -1,13 +1,14 @@
 # --- History ---
 
 # Where to store state (logs, recent files, etc, etc)
+# Zsh State Storage Dir
 ZSH_STATE_DIR="${XDG_STATE_HOME:-${HOME}/.local/state}/zsh"
 if [[ ! -d ${ZSH_STATE_DIR} ]]; then
     mkdir -p "${ZSH_STATE_DIR}"
 fi
 
-# History File
-HISTFILE="${ZSH_STATE_DIR}/history"
+# History
+HISTFILE="${ZSH_STATE_DIR}/history.log"
 HISTSIZE=5000 # Number saved in memory
 SAVEHIST=5000 # Number saved in history file
 
@@ -36,7 +37,8 @@ setopt PROMPT_SUBST
 PROMPT='%F{red}$(_prompt_exit_code)%f' # Show return code in red if it failed
 PROMPT+='[%T] ' # Time in 24H format
 PROMPT+='%F{green}%m%f: ' # Short hostname
-PROMPT+='%~${vcs_info_msg_0_}'
+PROMPT+='%2~' # Limit path to 2 items. Current dir and parent dir
+PROMPT+='${vcs_info_msg_0_}'
 PROMPT+=$'\n'"$ "
 
 # --- Aliases ---

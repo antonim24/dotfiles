@@ -1,3 +1,4 @@
+#!/bin/sh
 # Profile sets up environment that is shared between different shells
 
 # Implement XDG Base Directory Specification
@@ -26,9 +27,21 @@ _am_prepend_path(){
     fi
 }
 
+_am_append_path(){
+    dir="$1"
+    if [ -z "${dir}" ]; then return 0; fi
+    if [ -d "${dir}" ]; then
+        if ! _am_in_path "${dir}"; then
+            export PATH="${PATH}:${dir}"
+        fi
+    fi
+}
+
 # Install user bin directory if it exists
 _am_prepend_path "${HOME}/.local/bin"
 
 # Install dotfiles bin directory if it exists
 _am_prepend_path "${DOTFILES}/bin"
 
+_am_append_path /opt/bin
+_am_append_path /snap/bin
