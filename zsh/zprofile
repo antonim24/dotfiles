@@ -1,3 +1,8 @@
+# Source system POSIX profile
+if [[ -r /etc/profile ]]; then
+    emulate sh -c "source /etc/profile"
+fi
+
 # If the general profile exists, then source it
 if [[ -f ${HOME}/.profile ]]; then
     source ${HOME}/.profile

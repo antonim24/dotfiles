@@ -64,7 +64,7 @@
 
 [tag]
     # Sort tags using version instead of alnum
-    sort = version:refname
+    sort = -creatordate
 
 [alias]
     # One line without graphing
