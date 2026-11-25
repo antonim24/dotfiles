@@ -1,7 +1,8 @@
 {
     // ----- Appearance ----- //
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Dark Modern",
     "editor.fontSize": 18,
+    "window.zoomLevel": 1,
     "editor.minimap.enabled": false,
     "zenMode.hideLineNumbers": false,
     "editor.quickSuggestions": {
@@ -23,6 +24,44 @@
     "editor.autoClosingBrackets": "never",
     // This will force Vscode to always use unix style \n for LF instead of CRLF
     "files.eol": "\n",
+    "explorer.excludeGitIgnore": true,
+    // Settings for C++ files
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.useBuildPath": true,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "[cpp]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        },
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    // CMake Extension
+    "cmake.configureOnEdit": false,
+    // Doxygen settings
+    "doxdocgen.c.triggerSequence": "/**",
+    "doxdocgen.cpp.ctorText": "Construct a new {name} object.",
+    "doxdocgen.cpp.dtorText": "Destroy the {name} object.",
+    "doxdocgen.generic.order": [
+        "brief",
+        // "empty",
+        "tparam",
+        "param",
+        "return",
+        "custom"
+    ],
+    "doxdocgen.file.fileOrder": [
+        "file",
+        "brief",
+        "date",
+        "empty",
+        "copyright",
+    ],
+    "[markdown]": {
+        "editor.rulers": [80, 120]
+    },
     // ----- Vim Extension Settings ----- //
     "vim.foldfix": true,
     "vim.useSystemClipboard": true,
@@ -31,7 +70,7 @@
     "vim.leader": "<space>",
     "vim.insertModeKeyBindingsNonRecursive": [
         { // Use jj for escape
-            "before": ["j","j"],
+            "before": ["j","k"],
             "after": ["<esc>"]
         }
     ],
@@ -72,68 +111,26 @@
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
-    // Settings for C++ files
-    "C_Cpp.autocompleteAddParentheses": true,
-    "C_Cpp.default.cppStandard": "c++17",
-    "C_Cpp.default.compilerPath": "C:\\MinGW\\bin\\gcc.exe",
-    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
-    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
-        "*"
-    ],
-    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
-        "android-*"
-    ],
-    "C_Cpp.intelliSenseEngine": "disabled",
-    "[cpp]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll": "explicit"
-        },
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
-    },
     // Settings for Python files
     "[python]": {
-        "editor.formatOnType": true,
-        "editor.autoClosingBrackets": "always"
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
     },
-    "remote.SSH.remotePlatform": {
-        "homeserver": "linux"
-    },
+    "python.analysis.typeEvaluation.deprecateTypingAliases": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "isort.args": ["--profile", "black"],
+
     "[json][jsonc]": {
         "editor.quickSuggestions": {
             "strings": true
         },
         "editor.suggest.insertMode": "replace",
     },
-    "[terraform]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true
-    },
-    // Clangd Extension
-    "clangd.arguments": [
-        "--log=verbose",
-        "--enable-config",
-        "--query-driver=/usr/bin/x86_64-linux-gnu-g++-12",
-    ],
-    // CMake Extension
-    "cmake.pinnedCommands": [
-        "workbench.action.tasks.configureTaskRunner",
-        "workbench.action.tasks.runTask"
-    ],
-    "cmake.configureOnEdit": false,
-    // Doxygen settings
-    "doxdocgen.c.triggerSequence": "///",
-    "doxdocgen.generic.order": [
-        "brief",
-        // "empty",
-        "tparam",
-        "param",
-        "return",
-        "custom"
-    ],
-    "doxdocgen.cpp.ctorText": "Construct a new {name} object.",
-    "doxdocgen.cpp.dtorText": "Destroy the {name} object.",
-
     // Other Settings
     "files.associations": {
         ".clang-format": "yaml",
@@ -141,11 +138,13 @@
         "vimrc": "Vimscript",
         "*aliases": "shellscript",
         "bash*": "shellscript",
-        "profile": "shellscript"
+        "profile": "shellscript",
+        "*.tcc": "cpp"
     },
     "extensions.ignoreRecommendations": true,
     "workbench.settings.enableNaturalLanguageSearch": false,
     // ----- CSpell ----- //
+    "cSpell."
     "cSpell.allowCompoundWords": true,
     "cSpell.customDictionaries": {
         "custom-dictionary-user": {
@@ -155,8 +154,46 @@
             "scope": "user"
         }
     },
+    "cSpell.flagWords": [
+        "wether: whether"
+    ],
     // ----- GitLens ----- //
-    "git.openRepositoryInParentFolders": "never",
+    "git.openRepositoryInParentFolders": "always",
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
+    // ----- Java -----
+    "java.autobuild.enabled": false,
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "full",
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultColorDecorators": "never",
+        "editor.quickSuggestions": {
+            "strings": true,
+            "other": true,
+            "comments": false
+        }
+    },
+
+    // Other and Experimental
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "python.analysis.typeCheckingMode": "standard",
+    "workbench.editor.empty.hint": "hidden",
+    "security.workspace.trust.untrustedFiles": "open",
+    "redhat.telemetry.enabled": false,
+    "editor.accessibilitySupport": "off",
+    "jdk.telemetry.enabled": false,
+    "kotlin.languageServer.enabled": true,
+    "kotlin.debugAdapter.enabled": true,
+    "git.confirmSync": false,
+    "workbench.sideBar.location": "right",
+    "dotnet.formatting.organizeImportsOnFormat": true,
+    "[csharp]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    },
+    "ansible.lightspeed.enabled": false,
+    "ansible.lightspeed.suggestions.enabled": false
 }
